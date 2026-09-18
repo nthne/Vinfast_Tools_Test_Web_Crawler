@@ -1,0 +1,43 @@
+# Detailed Crawler Error Report
+
+## Error signature: `CRW_PERMANENT`
+
+**Message:** Blocked by anti-bot (generic_block): HTTP 403 with HTML content (146 bytes)
+
+## Impact
+
+| Metric | Value |
+|---|---:|
+| Job ID | `49ddbae0-3320-4d15-9ffa-eeaf69099d68` |
+| Source ID | `c306f333-5aaa-4325-abea-9ab2c276bdec` |
+| Pages with this error in this job | 2 |
+| All failed pages in this job | 592 |
+| Share of failed pages | 0.3% |
+| Generated at (UTC) | `2026-09-18T05:01:40.972729+00:00` |
+
+## Evidence
+
+- Status/kind distribution: `{'RESOURCE': 2}`
+- HTTP status distribution: `{'NO_HTTP_STATUS': 2}`
+- Retryable distribution: `{'False': 2}`
+- Runtime crawl config: `{'max_depth': 5, 'max_pages': 1200, 'max_resources': 20000, 'frequency': 'DAILY', 'only_main_content': False, 'render_js': None, 'wait_for_ms': None, 'timeout_ms': None}`
+
+## Affected pages
+
+| # | Page ID | Kind | HTTP status | Retryable | URL |
+|---:|---|---|---:|---|---|
+| 1 | `f636c03e-630e-4a2b-bea2-4dc3bfc8cf96` | `RESOURCE` | - | False | `https://media.foody.vn/default/s80x80/no-image.png` |
+| 2 | `b50f4908-329d-44b4-ab09-54830573819e` | `RESOURCE` | - | False | `https://media.foody.vn/default/s60x60/no-image.png` |
+
+## Recommended checks
+
+1. Correlate this error message with crawler worker logs at the job timestamp.
+2. Check whether the failure occurred before an HTTP response was recorded.
+3. Verify retryability and whether the error was incorrectly marked permanent.
+4. Reproduce with one page before starting a full recrawl.
+
+## Safety
+
+- URLs omit query strings and fragments.
+- This report was generated from read-only crawler API calls.
+- No retry, cancel, delete, or crawler configuration mutation was performed.

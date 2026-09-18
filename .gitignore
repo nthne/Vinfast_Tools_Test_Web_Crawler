@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp/
+.venv/
+venv/
+node_modules/
+exports/
+# Runtime artifacts (auth state, local databases, caches) stay private.
+artifacts/*
+# Markdown QA reports are reviewable and may be committed for crawler developers.
+!artifacts/crawler_error_reports/
+artifacts/crawler_error_reports/*
+!artifacts/crawler_error_reports/*.md
+!artifacts/crawler_error_reports/errors/
+artifacts/crawler_error_reports/errors/*
+!artifacts/crawler_error_reports/errors/*.md
+htmlcov/
+.coverage
