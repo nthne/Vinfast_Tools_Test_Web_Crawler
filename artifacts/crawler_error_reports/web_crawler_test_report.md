@@ -30,8 +30,6 @@ Các vấn đề chính:
 4. Tham số Page budget/Resource budget khó hiểu, mặc định quá lớn và có nguy cơ làm người dùng mới crawl nhiều dữ liệu thừa mà không biết rõ chi phí.
 5. PyTorch có dấu hiệu resolve relative URL sai do source URL thiếu dấu `/` cuối.
 
-Lưu ý quan trọng về job Foody `49ddbae0-3320-4d15-9ffa-eeaf69099d68`: chênh lệch giữa source config và runtime config xảy ra vì budget đã được người dùng chỉnh sau khi job bắt đầu. Vì vậy, báo cáo **không kết luận crawler tự ý tăng budget**. Vấn đề được ghi nhận lại là khả năng hiểu và sử dụng cấu hình budget.
-
 ## 3. Số liệu kiểm thử
 
 | Chỉ số | Kết quả |
@@ -139,16 +137,15 @@ Lưu ý quan trọng về job Foody `49ddbae0-3320-4d15-9ffa-eeaf69099d68`: chê
 
 ## 9. Báo cáo chi tiết và nguồn dữ liệu
 
-Báo cáo này cố ý giữ ngắn gọn. Các bằng chứng, page record, runtime metadata và hướng xử lý chi tiết nằm trong repository:
+Các bằng chứng, page record, runtime metadata và hướng xử lý chi tiết nằm trong repository:
 
 - [Crawler error summary](crawler_error_summary.md)
 - [Crawl history audit 16–17/9](crawl_history_audit_2026-09-16_2026-09-17.md)
 - [Các report chi tiết theo lỗi](errors/)
 
-**GitHub repository:** [nthne/Vinfast_Tools_Test_Web_Crawler](https://github.com/nthne/Vinfast_Tools_Test_Web_Crawler). Repository chứa project `test_web_crawler`, các tool, unit tests, tài liệu và report chi tiết; không chứa thư mục `huong_dan`.
+**GitHub repository:** [nthne/Vinfast_Tools_Test_Web_Crawler](https://github.com/nthne/Vinfast_Tools_Test_Web_Crawler). 
+Repository chứa project `test_web_crawler`, các tool, unit tests, tài liệu và report chi tiết.
 
 ## 10. Kết luận
 
-Tool đã cung cấp đủ bằng chứng để xác định các vấn đề chính nằm ở renderer/CDP, scope enforcement, phân loại page/resource, canonicalization và khả năng sử dụng cấu hình budget. Các lỗi upstream như anti-bot, 403, 404 hoặc 451 cần được tách riêng, không quy toàn bộ cho website nguồn.
-
-Ưu tiên trước khi crawl toàn source lần tiếp theo là sửa P0, chạy lại sample nhỏ, sau đó mới tăng page/resource budget.
+Tool đã cung cấp bằng chứng để xác định các vấn đề chính nằm ở renderer/CDP, scope enforcement, phân loại page/resource, canonicalization và khả năng sử dụng cấu hình budget. Các lỗi upstream như anti-bot, 403, 404 hoặc 451 cần được tách riêng, không quy toàn bộ cho website nguồn.
